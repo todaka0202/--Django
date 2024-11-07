@@ -1,17 +1,17 @@
-# from django.views.generic import TemplateView
 from django.shortcuts import render
+from django.shortcuts import HttpResponsePermanentRedirect
+from django.shortcuts import reverse
 from .models import Event
 
 
 def index(request):
-    latest_event_list = Event.objects.order_by("-pub_date")[:5]
+    latest_event_list = Event.objects.order_by("event_text")
     context = {"latest_event_list": latest_event_list}
     return render(request, "event/index.html", context)
 
 
 def CreateEvent(request):
-    aa = request.POST["CreateEvent"]
-    c = Event(event_text=aa)
+    c = Event(event_text=request.POST["text"])
     c.save()
 
-    return render(request, "event/index.html")
+    return HttpResponsePermanentRedirect(reverse("event:index"))

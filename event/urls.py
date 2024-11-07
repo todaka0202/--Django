@@ -5,5 +5,5 @@ app_name = "event"
 
 urlpatterns = [
     path("", views.index, name="index"),
-    path("", views.CreateEvent, name="CreateEvent"),
+    path("CreateEvent/", views.CreateEvent, name="CreateEvent"),
 ]
