@@ -4,12 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Document</title>
+
     <!-- css -->
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'event/style1.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'event/style2.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'event/style.css' %}">
+
 </head>
 
 <body>
@@ -23,14 +24,16 @@
         </nav>
     </header>
 
-    <form action="{% url 'event:CreateEvent' %}" method="post">
-        {% csrf_token %}
-        <fieldset>
-            <label for="name">イベント名</label>
-            <input type="text" id="name" name="text">
-        </fieldset>
-        <button type="submit" value="CreateEvent">登録！</button>
-    </form>
+    <h2>イベント一覧</h2>
+    {% if latest_event_list %}
+    <ul class="event_list">
+        {% for event in latest_event_list %}
+        <li>{{ event.event_text }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>現在イベントは何も登録されていません</p>
+    {% endif %}
 </body>
 
 </html>

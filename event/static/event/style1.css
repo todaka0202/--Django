@@ -1,0 +1,38 @@
+button {
+    color: #fff;
+    background-color: rgb(89, 118, 226);
+    border: 0;
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin: 2px;
+}
+
+.active {
+    color: #fff;
+    background-color: rgb(89, 118, 226);
+    border: 0;
+    padding: 8px 13px;
+    border-radius: 3px;
+    margin: 2px;
+}
+
+label {
+    font-size: 20px;
+}
+
+fieldset {
+    border: 0;
+    padding: 0;
+    margin-bottom: 10px;
+    margin-top: 15px;
+
+}
+
+fieldset input {
+    display: block;
+    padding: 5px 40px 5px 5px;
+}
+
+li {
+    list-style: none;
+}
