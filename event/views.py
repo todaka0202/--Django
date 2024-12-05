@@ -12,6 +12,7 @@ def index(request):
 
 def CreateEvent(request):
     c = Event(event_text=request.POST["text"])
-    c.save()
+    if c.event_text != "":
+        c.save()
 
     return HttpResponsePermanentRedirect(reverse("event:index"))

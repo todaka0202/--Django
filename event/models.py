@@ -8,4 +8,8 @@ class Event(models.Model):
         return self.event_text
 
 
+class Task(models.Model):
+    set_date = models.DateField("日程", blank=True, null=True)
+
+
 # Create your models here.
