@@ -1,19 +1,24 @@
 from django.shortcuts import render
 from django.shortcuts import HttpResponsePermanentRedirect
 from django.shortcuts import reverse
-from django.views.generic import TemplateView
+from django.views import generic
 
 from .models import Event
 
 
-class IndexView(TemplateView):
+class IndexView(generic.TemplateView):
     template_name = "event/index.html"
 
 
-def eventlist(request):
-    latest_event_list = Event.objects.order_by("event_text")
-    context = {"latest_event_list": latest_event_list}
-    return render(request, "event/eventlist.html", context)
+class EventListView(generic.ListView):
+    template_name = "event/eventlist.html"
+    context_object_name = "latest_event_list"
+    model = Event
+
+    def eventlist(self):
+        latest_event_list = Event.objects.order_by("event_text")
+        context = {"latest_event_list": latest_event_list}
+        return render("event/eventlist.html", context)
 
 
 def CreateEvent(request):
@@ -21,4 +26,4 @@ def CreateEvent(request):
     if c.event_text != "":
         c.save()
 
-    return HttpResponsePermanentRedirect(reverse("event:eventlist"))
+    return HttpResponsePermanentRedirect(reverse("event:EventList"))
