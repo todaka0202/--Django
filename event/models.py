@@ -8,8 +8,11 @@ class Event(models.Model):
         return self.event_text
 
 
-class Datemodel(models.Model):
-    date_field = models.DateField()
+class Date(models.Model):
+    event_date = models.DateField()
+
+    def __str__(self):
+        return self.event_date
 
 
 # Create your models here.

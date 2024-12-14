@@ -4,6 +4,7 @@ from django.shortcuts import reverse
 from django.views import generic
 
 from .models import Event
+from .models import Date
 
 
 class IndexView(generic.TemplateView):
@@ -23,7 +24,11 @@ class EventListView(generic.ListView):
 
 def CreateEvent(request):
     c = Event(event_text=request.POST["text"])
+    e = Date(event_date=request.POST["date"])
+
     if c.event_text != "":
         c.save()
+    elif e.event_date != "":
+        e.save()
 
-    return HttpResponsePermanentRedirect(reverse("event:EventList"))
+    return HttpResponsePermanentRedirect(reverse("event:eventlist"))
