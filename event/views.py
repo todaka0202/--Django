@@ -1,17 +1,13 @@
 from django.shortcuts import render
 from django.shortcuts import HttpResponsePermanentRedirect
 from django.shortcuts import reverse
+from django.views.generic import TemplateView
+
 from .models import Event
 
 
-def index(request):
-    return render(request, "event/index.html")
-
-
-def detail(reqest, event_id):
-    event = Event.objects.order_by("event_text")
-    context = {"event": event}
-    return render(reqest, "event/detail.html", context, event_id)
+class IndexView(TemplateView):
+    template_name = "event/index.html"
 
 
 def eventlist(request):
