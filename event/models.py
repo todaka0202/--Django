@@ -8,8 +8,8 @@ class Event(models.Model):
         return self.event_text
 
 
-class Date(models.Model):
-    event_date = models.DateField()
+class DateChoice(models.Model):
+    event_date = models.CharField(max_length=200)
 
     def __str__(self):
         return self.event_date

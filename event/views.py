@@ -4,7 +4,7 @@ from django.shortcuts import reverse
 from django.views import generic
 
 from .models import Event
-from .models import Date
+from .models import DateChoice
 
 
 class IndexView(generic.TemplateView):
@@ -24,7 +24,7 @@ class EventListView(generic.ListView):
 
 def CreateEvent(request):
     c = Event(event_text=request.POST["text"])
-    e = Date(event_date=request.POST["date"])
+    e = DateChoice(event_date=request.POST["date"])
 
     if c.event_text != "":
         c.save()
