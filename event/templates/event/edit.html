@@ -4,8 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- css -->
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'event/style.css' %}">
 </head>
 <body>
-    
+    <header>
+        <h1>調整くん</h1>
+        <nav>
+            <ul class="nav_content">
+                <li><a href="{% url 'event:index' %}">ホーム</a></li>
+                <li><a href="{% url 'event:eventlist' %}">イベント一覧</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h2>イベント編集</h2>
+    <form action="{% url 'event:update' event.id %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="title" value="{{ event.title }}">
+        <input type="submit" value="編集">
+    </form>
 </body>
 </html>

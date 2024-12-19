@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import HttpResponsePermanentRedirect
+from django.shortcuts import HttpResponseRedirect
 from django.shortcuts import reverse
 from django.views import generic
 
@@ -51,3 +52,17 @@ def DeleteEvent(request, event_id):
     target_event = Event.objects.get(id=event_id)
     target_event.delete()
     return HttpResponsePermanentRedirect(reverse("event:eventlist"))
+
+
+def edit(request, event_id):
+    target_event = Event.objects.get(id=event_id)
+    context = {"event": target_event}
+    return render(request, "event/edit.html", context)
+
+
+def update(request, event_id):
+    target_event = Event.objects.get(id=event_id)
+
+    target_event.event_text = request.POST.get('title')
+    target_event.save()
+    return HttpResponseRedirect(reverse("event:eventlist"))

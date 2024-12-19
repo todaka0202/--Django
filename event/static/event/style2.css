@@ -11,6 +11,17 @@ h2 {
     margin: 0;
 }
 
-li {
+.event_list li {
     list-style: none;
+    padding: 10px;
+}
+
+.event_list a {
+    color: #fff;
+    background-color: rgb(89, 118, 226);
+    border: 0;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 14px;
+    margin: 2px;
 }

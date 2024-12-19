@@ -9,4 +9,6 @@ urlpatterns = [
     path("detail/<int:pk>/", views.DetailView.as_view(), name="detail"),
     path("CreateEvent/", views.CreateEvent, name="CreateEvent"),
     path("delete/<int:event_id>", views.DeleteEvent, name="delete"),
+    path("edit/<int:event_id>", views.edit, name="edit"),
+    path("edit/<int:event_id>/update", views.update, name="update"),
 ]
