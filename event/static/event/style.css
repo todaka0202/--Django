@@ -27,6 +27,7 @@ a {
 
 .nav_content li {
     margin-left: 20px;
+    list-style: none;
 }
 
 .nav_content a {
