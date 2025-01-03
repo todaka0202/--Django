@@ -34,6 +34,11 @@ class DetailView(generic.DetailView):
         context.update({"event_date_list": DateChoice.objects.order_by("event_date")})
         return context
 
+    def eventdetail(self):
+        latest_event_list = Event.objects.order_by("event_text")
+        context = {"latest_event_list": latest_event_list}
+        return render("event/eventlist.html", context)
+
 
 def CreateEvent(request):
     c = Event(event_text=request.POST["text"])
@@ -63,6 +68,6 @@ def edit(request, event_id):
 def update(request, event_id):
     target_event = Event.objects.get(id=event_id)
 
-    target_event.event_text = request.POST.get('title')
+    target_event.event_text = request.POST.get("title")
     target_event.save()
     return HttpResponseRedirect(reverse("event:eventlist"))

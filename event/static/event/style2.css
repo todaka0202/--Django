@@ -16,9 +16,19 @@ h2 {
     padding: 10px;
 }
 
-.event_list a {
+.active {
     color: #fff;
     background-color: rgb(89, 118, 226);
+    border: 0;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 14px;
+    margin: 2px;
+}
+
+.delete {
+    color: #fff;
+    background-color: rgb(226, 89, 89);
     border: 0;
     padding: 5px 10px;
     border-radius: 3px;
