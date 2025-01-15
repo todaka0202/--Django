@@ -1,0 +1,12 @@
+.edit {
+    color: #fff;
+    background-color: rgb(89, 118, 226);
+    border: 0;
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin: 2px;
+}
+
+.text_box {
+    padding: 5px 40px 5px 5px;
+}
