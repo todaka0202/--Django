@@ -1,19 +1,35 @@
 h2 {
-    font-weight: normal;
+    font-weight: bold;
     font-size: 20px;
     margin-bottom: 5px;
     margin-top: 15px;
+}
+
+.main_content {
+    width: 600px;
+    margin: 0 auto;
 }
 
 .event_list {
     border: 1px solid #000;
     padding: 0 10px 0px 10px;
     margin: 0;
+    width: 600px;
 }
 
 .event_list li {
     list-style: none;
     padding: 10px;
+    position: relative;
+    width: 1000px;
+}
+
+span {
+    position: absolute;
+    top: 10px;
+    bottom: 0;
+    right: 0;
+    left: 420px;
 }
 
 .active {
@@ -23,7 +39,7 @@ h2 {
     padding: 5px 10px;
     border-radius: 3px;
     font-size: 14px;
-    margin: 2px;
+    margin: 3px;
 }
 
 .delete {
@@ -33,5 +49,5 @@ h2 {
     padding: 5px 10px;
     border-radius: 3px;
     font-size: 14px;
-    margin: 2px;
+    margin: 3px;
 }

@@ -24,16 +24,18 @@
         </nav>
     </header>
 
-    <h2>イベント一覧</h2>
-    {% if latest_event_list %}
-    <ul class="event_list">
-        {% for event in latest_event_list %}
-        <li>{{ event.event_text }}<a class="active" href="{% url 'event:edit' event.id %}">編集</a><a class="active" href="{% url 'event:detail' event.pk %}">詳細</a><a class="delete" href="{% url 'event:delete' event.id %}">削除</a></li>
-        {% endfor %}
-    </ul>
-    {% else %}
-    <p>現在イベントは何も登録されていません</p>
-    {% endif %}
+    <div class="main_content">
+        <h2>イベント一覧</h2>
+        {% if latest_event_list %}
+        <ul class="event_list">
+            {% for event in latest_event_list %}
+            <li>{{ event.event_text }}<span><a class="active" href="{% url 'event:edit' event.id %}">編集</a><a class="active" href="{% url 'event:detail' event.pk %}">詳細</a><a class="delete" href="{% url 'event:delete' event.id %}">削除</a></span></li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>現在イベントは何も登録されていません</p>
+        {% endif %}
+    </div>
 </body>
 
 </html>
